@@ -1,0 +1,810 @@
+body {
+    font-family: 'Mulish', sans-serif;
+}
+
+.banner {
+    /* background-color: #1E2E54; */
+    background-image: url(../img/banner9.jpg);
+    background-size: cover;
+    background-position: center;
+    height: 60vh;
+    border-image: fill 0 linear-gradient(#0001, #000);
+    /* background-image: linear-gradient(to bottom, rgba(87, 88, 99, 0.52), rgba(91, 43, 94, 0.859)),; */
+}
+
+.banner-text {
+    /* font-family: 'Carter One', cursive; */
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* warna footer */
+.footer1-color {
+    background-color: #3093f0;
+}
+
+/* end warna footer */
+
+/* warna menu 2 */
+.text-orange{
+    color: #f85832;
+}
+.text-black-custom {
+    color: #292829;
+}
+.text-yellow{
+    color: #F7AE31;
+}
+
+/* end warna menu 2 */
+
+.nav_color
+{
+    background-color: #251D3A;
+}
+
+.bg-black-custom{
+    background-color: #292829;
+}
+
+.bg-user{
+    background: linear-gradient(60deg,
+                rgb(38, 80, 115) 0%,
+                rgb(45, 149, 150) 100%);
+}
+
+.bg-orange{
+    background-color: #FC6736;
+}
+
+.bg-black{
+    background-color: #000000;
+}
+
+.bg-green-1{
+    background-color: #1B4242;
+}
+
+.bg-green-2{
+    background-color: #092635;
+}
+
+.btn-orange{
+    background-color: #f85832;
+    color: white;
+}
+.warna_search {
+    background-color: #f85832;
+}
+
+.card-body-size {
+    min-block-size: 20rem;
+}
+
+.item-size {
+    max-height: 18rem;
+}
+
+.item-size-video {
+    max-height: 18rem;
+    min-height: 18rem;
+}
+
+.teks {
+    width: 250px; /* Atur lebar maksimum untuk kontainer teks */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.teks2 {
+    width: 150px; /* Atur lebar maksimum untuk kontainer teks */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* cooler card photo profile */
+.card-img2 {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    width: 220px;
+    height: 160px;
+    background: rgb(255, 255, 255);
+    border-radius: 20px;
+    box-shadow: 0 35px 80px rgba(0, 0, 0, 0.15);
+    transition: 0.5s;
+}
+
+.card-img2:hover {
+    height: 170px;
+}
+
+.card-img2 .imgbox2 {
+    position: absolute;
+    top: 10px;
+    width: 200px;
+    height: 120px;
+    background: black;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: 0.5s;
+}
+
+.card-img2:hover .imgbox2 {
+    top: -50px;
+    scale: 0.8;
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 2);
+}
+
+.card-img2 .imgbox2 img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    max-width: 100%;
+}
+
+.card-img2 .content2 {
+    position: absolute;
+    top: 130px;
+    width: 100%;
+    padding: 0 30px;
+    height: 35px;
+    overflow: hidden;
+    text-align: center;
+    transition: 0.5s;
+}
+
+.card-img2:hover .content2 {
+    top: 85px;
+    height: 150px;
+}
+
+/* end cooler card photo profile */
+
+/* cooler card video profile */
+.card-vid2 {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    width: 220px;
+    height: 160px;
+    background: rgb(255, 255, 255);
+    border-radius: 20px;
+    box-shadow: 0 35px 80px rgba(0, 0, 0, 0.15);
+    transition: 0.5s;
+}
+
+.card-vid2:hover {
+    height: 170px;
+}
+
+.card-vid2 .vidbox2 {
+    position: absolute;
+    top: 10px;
+    width: 200px;
+    height: 120px;
+    background: black;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: 0.5s;
+}
+
+.card-vid2 .vidbox2 img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card-vid2 .vidbox2 iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card-vid2:hover .vidbox2 {
+    top: -50px;
+    scale: 0.8;
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 2);
+}
+
+.card-vid2 .contentvid2 {
+    position: absolute;
+    top: 133px;
+    width: 100%;
+    padding: 0 30px;
+    height: 35px;
+    overflow: hidden;
+    text-align: center;
+    transition: 0.5s;
+}
+
+.card-vid2:hover .contentvid2 {
+    top: 85px;
+    height: 150px;
+}
+/* end cooler card video profile */
+
+
+/* cooler card audio profile */
+.card-audio2 {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    width: 220px;
+    height: 160px;
+    background: rgb(255, 255, 255);
+    border-radius: 20px;
+    box-shadow: 0 35px 80px rgba(0, 0, 0, 0.15);
+    transition: 0.5s;
+}
+
+.card-audio2:hover {
+    height: 230px;
+}
+
+.card-audio2 .audiobox2 {
+    position: absolute;
+    top: 10px;
+    width: 200px;
+    height: 120px;
+    background: rgb(255, 255, 255);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: 0.5s;
+}
+
+.card-audio2:hover .audiobox2 {
+    border-radius: 35%;
+    top: -50px;
+    scale: 0.8;
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 2);
+}
+
+.card-audio2 .audiobox2 img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card-audio2 .contentaudio2 {
+    position: absolute;
+    top: 115px;
+    width: 100%;
+    height: 35px;
+    overflow: hidden;
+    text-align: center;
+    transition: 0.5s;
+}
+
+.card-audio2:hover .contentaudio2 {
+    top: 75px;
+    height: 150px;
+}
+
+.card-audio2 audio {
+    width: 100%;
+}
+
+/* end cooler card audio profile */
+
+/* tombol download video */
+.tombol-utama {
+    margin-bottom: 10px;
+}
+
+.tombol-lainnya {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.tombol-lainnya.muncul {
+    opacity: 1;
+    transform: translateY(0);
+}
+/* end tombol download video */
+
+/* warna svg */
+.theme-icon-active use {
+    fill: white;
+}
+/* end warna svg */
+
+/* media query */
+@media screen and (min-width: 992px) and (max-width: 1199px) {
+    .card-img .imgbox {
+            width: 210px;
+        }
+    .card-img2 .imgbox2 {
+            width: 120px;
+        }
+     .card-vid .vidbox {
+            width: 210px;
+        }
+     .card-vid2 .vidbox2 {
+            width: 120px;
+        }
+    .card-audio .audiobox {
+            width: 210px;
+        }
+    .card-audio2 .audiobox2 {
+            width: 120px;
+        }
+    .card-audio .waudio {
+            width: 92%;
+        }
+    .teks {
+            width: 150px;
+            /* Atur lebar maksimum untuk kontainer teks */
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    .teks2 {
+            width: 70px;
+            /* Atur lebar maksimum untuk kontainer teks */
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+}
+@media screen and (min-width: 1200px) and (max-width: 1399px) {
+    .card-img .imgbox {
+            width: 250px;
+        }
+    .card-img2 .imgbox2 {
+            width: 150px;
+        }
+    .card-vid .vidbox {
+            width: 250px;
+        }
+    .card-vid2 .vidbox2 {
+            width: 150px;
+        }
+    .card-audio .audiobox {
+            width: 250px;
+        }
+    .card-audio2 .audiobox2 {
+            width: 150px;
+        }
+    .card-audio .waudio {
+            width: 95%;
+        }
+    .teks {
+            width: 200px;
+            /* Atur lebar maksimum untuk kontainer teks */
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    .teks2 {
+            width: 100px;
+            /* Atur lebar maksimum untuk kontainer teks */
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+}
+/* end media query */
+
+/* icon file, yt dan drive */
+.iconyd {
+    width: 1.3rem;
+}
+
+.iconyd:hover {
+    transition: all 0.3s;
+    width: 1.7rem;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -ms-transition: all 0.3s;
+    -o-transition: all 0.3s;
+}
+/* end icon file, yt dan drive */
+
+/* icon judul post show */
+.iconps {
+    width: 1.8rem;
+}
+/* end icon judul post show */
+
+/* foto profil */
+.foto-profil {
+    width: 8rem;
+    height: 8rem;
+    background: black;
+    margin: 0 auto;
+}
+
+.foto-profil img{
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    max-width: 100%;
+}
+.foto-profil-nav {
+    width: 2rem;
+    height: 2rem;
+    background: black;
+    margin: 0 auto;
+}
+
+.foto-profil-nav img{
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    max-width: 100%;
+}
+
+.profil-edit {
+    width: 15rem;
+    height: 15rem;
+    background: black;
+}
+
+.profil-edit img{
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    max-width: 100%;
+}
+
+.profil-detail {
+    width: 2rem;
+    height: 2rem;
+    background: black;
+}
+
+.profil-detail img{
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    max-width: 100%;
+}
+/* end foto profil */
+
+/* icon profile */
+.iconsize {
+    width: 1.5rem;
+}
+/* end icon profile */
+
+/* link menu */
+.link{
+    padding: 0.5rem;
+    position: relative;
+}
+
+.link::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: #fff;
+    border-radius: 5px;
+    transform: scaleX(0);
+    transition: all 0.6s ease;
+}
+
+.link::before{
+    bottom: 0;
+    left: 0;
+}
+
+.link:hover::before{
+    transform: scaleX(1);
+}
+/* end link menu */
+
+/* embed youtube */
+.laravel-embed__responsive-wrapper {
+    position: relative;
+    height: 100%;
+    overflow: hidden;
+    max-width: 100%;
+    object-fit: cover;
+}
+
+.laravel-embed__fallback {
+    background: rgba(0, 0, 0, 0.15);
+    color: rgba(0, 0, 0, 0.7);
+    display: grid;
+    align-items: center;
+    justify-content: center;
+}
+
+.laravel-embed__fallback,
+.laravel-embed__responsive-wrapper iframe,
+.laravel-embed__responsive-wrapper object,
+.laravel-embed__responsive-wrapper embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* end embed youtube */
+
+.card-custom {
+    position: relative;
+    max-width: 320px;
+    height: 250px;
+    overflow: hidden;
+}
+
+.category-logo {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 24px;
+    color: #fff;
+    opacity: 0.8;
+}
+
+.card-custom img,
+.card-custom video,
+.card-custom .music,
+.card-custom .gd {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: filter 0.5s ease;
+}
+
+.card-custom:hover img,
+.card-custom:hover video {
+    filter: blur(5px);
+    -webkit-filter: blur(5px);
+}
+
+.deskripsi {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #fff;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    z-index: 1;
+}
+
+.card-custom:hover .deskripsi {
+    opacity: 1;
+}
+
+
+.card-custom::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border: 3px solid white;
+    border-radius: inherit;
+    -webkit-border-radius: inherit;
+    -moz-border-radius: inherit;
+    -ms-border-radius: inherit;
+    -o-border-radius: inherit;
+    opacity: 0;
+    transition: 0.4s ease-in-out;
+    -webkit-transition: 0.4s ease-in-out;
+    -moz-transition: 0.4s ease-in-out;
+    -ms-transition: 0.4s ease-in-out;
+    -o-transition: 0.4s ease-in-out;
+}
+
+.card-custom:hover img,
+.card-custom:hover video,
+.card-custom:hover .music,
+.card-custom:hover .gd,
+.card-custom:hover .laravel-embed__responsive-wrapper {
+    filter: grayscale(1);
+    filter: brightness(0.4);
+    -webkit-filter: brightness(0.4);
+}
+
+.card-custom:hover::after {
+    opacity: 1;
+    inset: 10px;
+}
+
+/* Wave Audio */
+.music {
+    width: 300px;
+    height: 200px;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.music .bar {
+    width: 12px;
+    border-radius: 10px;
+    background: white;
+    animation: movement 1.5s ease-in-out infinite;
+}
+
+@keyframes movement {
+
+    0%,
+    100% {
+        height: 2px;
+    }
+
+    50% {
+        height: 80px;
+    }
+}
+
+.music .bar:nth-child(1) {
+    background: #39A7FF;
+    animation-delay: 1s;
+}
+
+.music .bar:nth-child(2) {
+    background: #87C4FF;
+    animation-delay: .8s;
+}
+
+.music .bar:nth-child(3) {
+    background: #39A7FF;
+    animation-delay: .6s;
+}
+
+.music .bar:nth-child(4) {
+    background: #87C4FF;
+    animation-delay: .4s;
+}
+
+.music .bar:nth-child(5) {
+    background: #39A7FF;
+    animation-delay: .2s;
+}
+
+.music .bar:nth-child(6) {
+    background: #87C4FF;
+    animation-delay: .2s;
+}
+
+.music .bar:nth-child(7) {
+    background: #39A7FF;
+    animation-delay: .4s;
+}
+
+.music .bar:nth-child(8) {
+    background: #87C4FF;
+    animation-delay: .6s;
+}
+
+.music .bar:nth-child(9) {
+    background: #39A7FF;
+    animation-delay: .8s;
+}
+
+.music .bar:nth-child(10) {
+    background: #87C4FF;
+    animation-delay: 1s;
+}
+
+.waudio {
+    width: 98%;
+}
+
+/* end Wave Audio */
+
+/* wave login */
+.header {
+    position: relative;
+    text-align: center;
+    background: linear-gradient(60deg,
+            rgb(38, 80, 115) 0%,
+            rgb(45, 149, 150) 100%);
+    color: white;
+}
+
+.inner-header {
+    height: 85vh;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.flex {
+    /*Flexbox for containers*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.waves {
+    position: relative;
+    width: 100%;
+    height: 10vh;
+    margin-bottom: -7px;
+    /*Fix for safari gap*/
+    min-height: 100px;
+    max-height: 150px;
+}
+
+.content-wave {
+    position: relative;
+    height: 4.5vh;
+    text-align: center;
+    background-color: white;
+}
+
+/* Animation */
+
+.parallax>use {
+    animation: move-forever 25s cubic-bezier(0.55, 0.5, 0.45, 0.5) infinite;
+}
+
+.parallax>use:nth-child(1) {
+    animation-delay: -2s;
+    animation-duration: 7s;
+}
+
+.parallax>use:nth-child(2) {
+    animation-delay: -3s;
+    animation-duration: 10s;
+}
+
+.parallax>use:nth-child(3) {
+    animation-delay: -4s;
+    animation-duration: 13s;
+}
+
+.parallax>use:nth-child(4) {
+    animation-delay: -5s;
+    animation-duration: 20s;
+}
+
+@keyframes move-forever {
+    0% {
+        transform: translate3d(-90px, 0, 0);
+    }
+
+    100% {
+        transform: translate3d(85px, 0, 0);
+    }
+}
+
+/* /* Shrinking for mobile */
+@media (max-width: 768px) {
+    .waves {
+        height: 40px;
+        min-height: 40px;
+    }
+
+    .content-wave {
+        height: 30vh;
+    }
+}
+
+/* end wave login */
