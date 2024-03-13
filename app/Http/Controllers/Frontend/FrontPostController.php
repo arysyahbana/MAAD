@@ -57,12 +57,14 @@ class FrontPostController extends Controller
             'file' => 'mimes:png,jpg,jpeg,mp4,mkv,webm,mp3,m4a,eps,psd,ai,aep,aepx,prproj,aup3,sesx,als,zip,rar|file|max:10240',
             'file2' => 'file|max:10240',
             'body' => 'required',
+            // 'category_menu' => 'required',
             'url=' => [new EmbeddableUrl],
 
         ], [
-            'body.required' => 'deskripsi harus diisikan',
-            'file.mimes' => 'file harus berupa gambar, video, audio',
-            'title.required' => 'title tidak boleh kosong'
+            'body.required' => 'Deskripsi harus diisikan',
+            'file.mimes' => 'File harus berupa gambar, video, audio',
+            'title.required' => 'Judul tidak boleh kosong',
+            // 'category_menu.required' => 'Pilih Kategori yang valid',
         ]);
         $slug = SlugService::createSlug(Post::class, 'slug', $request->title);
         $store = new Post();

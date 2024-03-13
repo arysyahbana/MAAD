@@ -277,94 +277,102 @@
 
 {{-- upload link --}}
 <script>
-    document.getElementById('button1').addEventListener('click', function() {
-        document.getElementById('input1').style.display = 'block';
-        document.getElementById('input2').style.display = 'none';
-        document.getElementById('input3').style.display = 'none';
-        document.getElementById('input4').style.display = 'block';
-        document.getElementById('input5').style.display = 'block';
-        document.getElementById('input6').style.display = 'block';
-        document.getElementById('icon1').style.display = 'block';
-        document.getElementById('icon2').style.display = 'none';
-        document.getElementById('icon3').style.display = 'none';
+    document.getElementById("button1").style.display = "none";
+    document.getElementById("button1Container").style.display = "none";
+    document.getElementById("button4").style.display = "none";
+    document.getElementById("button4Container").style.display = "none";
+
+    document.getElementById("button1").addEventListener("click", function() {
+        document.getElementById("input1").style.display = "block";
+        document.getElementById("input2").style.display = "none";
+        document.getElementById("input3").style.display = "none";
+        document.getElementById("input6").style.display = "block";
+        document.getElementById("button1").style.display = "none";
+        document.getElementById("button1Container").style.display = "none";
+        document.getElementById("button2").style.display = "block";
+        document.getElementById("button2Container").style.display = "flex";
+        document.getElementById("button3").style.display = "block";
+        document.getElementById("button3Container").style.display = "flex";
     });
 
-    document.getElementById('button2').addEventListener('click', function() {
-        document.getElementById('input1').style.display = 'none';
-        document.getElementById('input2').style.display = 'block';
-        document.getElementById('input3').style.display = 'none';
-        document.getElementById('input4').style.display = 'block';
-        document.getElementById('input5').style.display = 'none';
-        document.getElementById('input6').style.display = 'block';
-        document.getElementById('icon1').style.display = 'none';
-        document.getElementById('icon2').style.display = 'block';
-        document.getElementById('icon3').style.display = 'none';
+    document.getElementById("button2").addEventListener("click", function() {
+        document.getElementById("input1").style.display = "none";
+        document.getElementById("input2").style.display = "block";
+        document.getElementById("input3").style.display = "none";
+        document.getElementById("input6").style.display = "none";
+        document.getElementById("button1").style.display = "block";
+        document.getElementById("button1Container").style.display = "flex";
+        document.getElementById("button2").style.display = "none";
+        document.getElementById("button2Container").style.display = "none";
+        document.getElementById("button3").style.display = "block";
+        document.getElementById("button3Container").style.display = "flex";
     });
 
-    document.getElementById('button3').addEventListener('click', function() {
-        document.getElementById('input1').style.display = 'none';
-        document.getElementById('input2').style.display = 'none';
-        document.getElementById('input3').style.display = 'block';
-        document.getElementById('input4').style.display = 'block';
-        document.getElementById('input5').style.display = 'block';
-        document.getElementById('input6').style.display = 'block';
-        document.getElementById('icon1').style.display = 'none';
-        document.getElementById('icon2').style.display = 'none';
-        document.getElementById('icon3').style.display = 'block';
+    document.getElementById("button3").addEventListener("click", function() {
+        document.getElementById("input1").style.display = "none";
+        document.getElementById("input2").style.display = "none";
+        document.getElementById("input3").style.display = "block";
+        document.getElementById("input6").style.display = "block";
+        document.getElementById("button1").style.display = "block";
+        document.getElementById("button1Container").style.display = "flex";
+        document.getElementById("button2").style.display = "block";
+        document.getElementById("button2Container").style.display = "flex";
+        document.getElementById("button3").style.display = "none";
+        document.getElementById("button3Container").style.display = "none";
+    });
+
+    document.getElementById("button4").addEventListener("click", function() {
+        document.getElementById("input4").style.display = "block";
+        document.getElementById("input5").style.display = "none";
+        document.getElementById("button4").style.display = "none";
+        document.getElementById("button4Container").style.display = "none";
+        document.getElementById("button5").style.display = "block";
+        document.getElementById("button5Container").style.display = "flex";
+    });
+
+    document.getElementById("button5").addEventListener("click", function() {
+        document.getElementById("input4").style.display = "none";
+        document.getElementById("input5").style.display = "block";
+        document.getElementById("button4").style.display = "block";
+        document.getElementById("button4Container").style.display = "flex";
+        document.getElementById("button5").style.display = "none";
+        document.getElementById("button5Container").style.display = "none";
     });
 </script>
 {{-- end upload link --}}
 
-{{-- Ajax Jquery --}}
-{{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
-    integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script> --}}
-{{-- end Ajax Jquery --}}
-
-{{-- Progress bar --}}
-{{-- <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        document.getElementById('uploadForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-
-            var formData = new FormData();
-            formData.append('title', document.getElementsByName('title')[0].value);
-            formData.append('body', document.getElementsByName('body')[0].value);
-            formData.append('file', document.getElementById('file').files[0]);
-
-            var xhr = new XMLHttpRequest();
-
-            // Lacak kemajuan unggah
-            xhr.upload.addEventListener('progress', function(event) {
-                if (event.lengthComputable) {
-                    var percentCompleted = Math.round((event.loaded * 100) / event.total);
-                    document.querySelector('.progress-bar').style.width = percentCompleted +
-                    '%';
-                }
-            });
-
-            // Tangani unggah berhasil
-            xhr.addEventListener('load', function() {
-                if (xhr.status === 200) {
-                    console.log(xhr.responseText);
-                    // Anda dapat menangani respons di sini jika diperlukan
-                } else {
-                    console.error('Gagal mengunggah file. Server mengembalikan ' + xhr.status +
-                        ': ' + xhr.statusText);
-                }
-            });
-
-            // Tangani kesalahan selama unggah
-            xhr.addEventListener('error', function() {
-                console.error('Gagal mengunggah file. Kesalahan koneksi');
-            });
-
-            // Persiapkan dan kirim permintaan
-            xhr.open('POST', "{{ route('post_store') }}", true);
-            xhr.setRequestHeader('X-CSRF-TOKEN', document.querySelector('meta[name="csrf-token"]')
-                .content);
-            xhr.send(formData);
-        });
+{{-- loading btn --}}
+<script>
+    // Ketika form di-submit
+    document.getElementById("uploadForm").addEventListener("submit", function(event) {
+        // Menampilkan tombol dengan spinner
+        document.getElementById("uploadingBtn").style.display = "block";
+        document.getElementById("upBtn").style.display = "none";
     });
-</script> --}}
-{{-- end Progress bar --}}
+</script>
+{{-- end loading btn --}}
+
+{{-- button edit link --}}
+<script>
+    document.getElementById("buttonEdit1").style.display = "none";
+    document.getElementById("buttonEdit1Container").style.display = "none";
+
+    document.getElementById("buttonEdit1").addEventListener("click", function() {
+        document.getElementById("inputEdit1").style.display = "block";
+        document.getElementById("inputEdit2").style.display = "none";
+        document.getElementById("buttonEdit1").style.display = "none";
+        document.getElementById("buttonEdit1Container").style.display = "none";
+        document.getElementById("buttonEdit2").style.display = "block";
+        document.getElementById("buttonEdit2Container").style.display = "flex";
+    });
+
+    document.getElementById("buttonEdit2").addEventListener("click", function() {
+        document.getElementById("inputEdit1").style.display = "none";
+        document.getElementById("inputEdit2").style.display = "block";
+        document.getElementById("buttonEdit1").style.display = "block";
+        document.getElementById("buttonEdit1Container").style.display = "flex";
+        document.getElementById("buttonEdit2").style.display = "none";
+        document.getElementById("buttonEdit2Container").style.display = "none";
+    });
+</script>
+{{-- end button edit link --}}

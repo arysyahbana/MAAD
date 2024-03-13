@@ -72,8 +72,8 @@
 
     {{-- @include('frontend.partials.footer2') --}}
 
+    {{-- js footer --}}
+    @include('frontend.layouts.jsfrontfooter')
 </body>
-{{-- js footer --}}
-@include('frontend.layouts.jsfrontfooter')
 
 </html>

@@ -6,208 +6,221 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col col-12">
-                <h4 class="card-title fs-4 fw-bold text-start pt-3 text-black-custom">Profile {{ $show->name }}</h4>
-            </div>
-            <div class="col col-12">
                 <div class="container px-5 py-3">
-                    <div class="card-body">
-                        {{-- <p class="fs-3">My Portofolio</p> --}}
-                        <ul class="nav nav-tabs mb-3">
-                            <li class="nav-item">
-                                <a class="nav-link mx-lg-4 {{ $page == 'Photo' ? 'text-danger active' : 'text-dark' }}"
-                                    href="{{ route('profile', $show->name) }}"><i class="bi bi-camera-fill"></i> Photo</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-decoration-none mx-lg-4  {{ $page == 'Video' ? 'text-danger active' : 'text-dark' }}"
-                                    href="{{ route('profile-video', $show->name) }}"><i class="bi bi-camera-reels-fill"></i>
-                                    Video</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-decoration-none mx-lg-4  {{ $page == 'Audio' ? 'text-danger active' : 'text-dark' }}"
-                                    href="{{ route('profile-audio', $show->name) }}"><i
-                                        class="bi bi-file-earmark-music-fill"></i> Audio</a>
-                            </li>
-                        </ul>
-                        @if ($page == 'Photo')
-                            <div class="row">
-                                @foreach ($post as $item)
-                                    @php
-                                        $path_photo = asset('storage/uploads/photo/compress/' . $item->file);
-                                        $extphoto = pathinfo($path_photo, PATHINFO_EXTENSION);
-                                    @endphp
-                                    @if ($extphoto == 'jpg' || $extphoto == 'png' || $extphoto == 'jpeg')
-                                        <div class="col col-12 col-md-6 col-lg-3 mt-1" data-aos="fade-up"
-                                            data-aos-duration="1200">
-                                            <div class="card-custom shadow rounded-3 mx-auto">
-                                                <img src="{{ $path_photo }}" alt="Card Image" class="img-fluid" />
-                                                <div class="category-logo">
-                                                    <i class="bi bi-image-fill"></i>
+                    <div class="row">
+                        <p class="fs-3 text-start pt-3 text-black-custom">Profile {{ $show->name }}
+                        </p>
+
+                        <hr>
+
+                        <div class="col col-12">
+                            <div class="card-body">
+                                {{-- <p class="fs-3">My Portofolio</p> --}}
+                                <ul class="nav nav-tabs mb-3">
+                                    <li class="nav-item">
+                                        <a class="nav-link mx-lg-4 {{ $page == 'Photo' ? 'text-danger active' : 'text-dark' }}"
+                                            href="{{ route('profile', $show->name) }}"><i class="bi bi-camera-fill"></i>
+                                            Photo</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link text-decoration-none mx-lg-4  {{ $page == 'Video' ? 'text-danger active' : 'text-dark' }}"
+                                            href="{{ route('profile-video', $show->name) }}"><i
+                                                class="bi bi-camera-reels-fill"></i>
+                                            Video</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link text-decoration-none mx-lg-4  {{ $page == 'Audio' ? 'text-danger active' : 'text-dark' }}"
+                                            href="{{ route('profile-audio', $show->name) }}"><i
+                                                class="bi bi-file-earmark-music-fill"></i> Audio</a>
+                                    </li>
+                                </ul>
+                                @if ($page == 'Photo')
+                                    <div class="row">
+                                        @foreach ($post as $item)
+                                            @php
+                                                $path_photo = asset('storage/uploads/photo/compress/' . $item->file);
+                                                $extphoto = pathinfo($path_photo, PATHINFO_EXTENSION);
+                                            @endphp
+                                            @if ($extphoto == 'jpg' || $extphoto == 'png' || $extphoto == 'jpeg')
+                                                <div class="col col-12 col-md-6 col-lg-3 mt-4" data-aos="fade-up"
+                                                    data-aos-duration="1200">
+                                                    <div class="card-custom shadow rounded-3 mx-auto">
+                                                        <img src="{{ $path_photo }}" alt="Card Image" class="img-fluid" />
+                                                        <div class="category-logo">
+                                                            <i class="bi bi-image-fill"></i>
+                                                        </div>
+                                                        <div class="deskripsi">
+                                                            <h5 class="fw-bold teks">{{ $item->name }}</h5>
+                                                            <p class="fs-6 teks">{{ $item->body }}</p>
+                                                            <a href="{{ route('detail', [$item->slug]) }}"
+                                                                class="card-button btn btn-sm warna_search btn-danger">Detail</a>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                                <div class="deskripsi">
-                                                    <h5 class="fw-bold teks">{{ $item->name }}</h5>
-                                                    <p class="fs-6 teks">{{ $item->body }}</p>
-                                                    <a href="{{ route('detail', [$item->slug]) }}"
-                                                        class="card-button btn btn-sm warna_search btn-danger">Detail</a>
+                                            @elseif ($item->urlgd && $item->rCategory->name == 'Photo')
+                                                <div class="col col-12 col-md-6 col-lg-3 mt-4" data-aos="fade-up"
+                                                    data-aos-duration="1200">
+                                                    <div class="card-custom shadow rounded-3 mx-auto">
+                                                        <iframe src="{{ $item->urlgd }}" width="640" height="480"
+                                                            allow="autoplay" class="gd"></iframe>
+                                                        <div class="category-logo">
+                                                            <i class="bi bi-image-fill"></i>
+                                                        </div>
+                                                        <div class="deskripsi">
+                                                            <h5 class="fw-bold teks">{{ $item->name }}</h5>
+                                                            <p class="fs-6 teks">{{ $item->body }}</p>
+                                                            <a href="{{ route('detail', [$item->slug]) }}"
+                                                                class="card-button btn btn-sm warna_search btn-danger">Detail</a>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </div>
-                                    @elseif ($item->urlgd && $item->rCategory->name == 'Photo')
-                                        <div class="col col-12 col-md-6 col-lg-3 mt-1" data-aos="fade-up"
-                                            data-aos-duration="1200">
-                                            <div class="card-custom shadow rounded-3 mx-auto">
-                                                <iframe src="{{ $item->urlgd }}" width="640" height="480"
-                                                    allow="autoplay" class="gd"></iframe>
-                                                <div class="category-logo">
-                                                    <i class="bi bi-image-fill"></i>
+                                            @endif
+                                        @endforeach
+                                    </div>
+                                @elseif ($page == 'Video')
+                                    <div class="row">
+                                        @foreach ($post as $item)
+                                            @php
+                                                $path_video = $item->file;
+                                                $extvideo = pathinfo($path_video, PATHINFO_EXTENSION);
+                                            @endphp
+                                            @if ($extvideo == 'mp4' || $extvideo == 'mkv' || $extvideo == 'webm')
+                                                <div class="col col-12 col-md-6 col-lg-3 mt-4" data-aos="fade-up"
+                                                    data-aos-duration="1200">
+                                                    <div class="card-custom shadow rounded-3 mx-auto">
+                                                        <video class="" controls>
+                                                            @if ($extvideo == 'mp4')
+                                                                <source src="{{ $path_video }}" alt=""
+                                                                    type="video/mp4">
+                                                            @endif
+                                                            @if ($extvideo == 'mkv')
+                                                                <source src="{{ $path_video }}" alt=""
+                                                                    type="video/mkv">
+                                                            @endif
+                                                            @if ($extvideo == 'webm')
+                                                                <source src="{{ $path_video }}" alt=""
+                                                                    type="video/webm">
+                                                            @endif
+                                                        </video>
+                                                        <div class="category-logo">
+                                                            <i class="bi bi-film"></i>
+                                                        </div>
+                                                        <div class="deskripsi">
+                                                            <h5 class="fw-bold teks">{{ $item->name }}</h5>
+                                                            <p class="fs-6 teks">{{ $item->body }}</p>
+                                                            <a href="{{ route('detail', [$item->slug]) }}"
+                                                                class="card-button btn btn-sm warna_search btn-danger">Detail</a>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                                <div class="deskripsi">
-                                                    <h5 class="fw-bold teks">{{ $item->name }}</h5>
-                                                    <p class="fs-6 teks">{{ $item->body }}</p>
-                                                    <a href="{{ route('detail', [$item->slug]) }}"
-                                                        class="card-button btn btn-sm warna_search btn-danger">Detail</a>
+                                            @elseif ($item->url)
+                                                <div class="col col-12 col-md-6 col-lg-3 mt-4" data-aos="fade-up"
+                                                    data-aos-duration="1200">
+                                                    <div class="card-custom shadow rounded-3 mx-auto">
+                                                        <x-embed url="{{ $item->url }}" aspect-ratio="4:3" />
+                                                        <div class="category-logo">
+                                                            <i class="bi bi-film"></i>
+                                                        </div>
+                                                        <div class="deskripsi">
+                                                            <h5 class="fw-bold teks">{{ $item->name }}</h5>
+                                                            <p class="fs-6 teks">{{ $item->body }}</p>
+                                                            <a href="{{ route('detail', [$item->slug]) }}"
+                                                                class="card-button btn btn-sm warna_search btn-danger">Detail</a>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </div>
-                                    @endif
-                                @endforeach
-                            </div>
-                        @elseif ($page == 'Video')
-                            <div class="row">
-                                @foreach ($post as $item)
-                                    @php
-                                        $path_video = $item->file;
-                                        $extvideo = pathinfo($path_video, PATHINFO_EXTENSION);
-                                    @endphp
-                                    @if ($extvideo == 'mp4' || $extvideo == 'mkv' || $extvideo == 'webm')
-                                        <div class="col col-12 col-md-6 col-lg-3 mt-1" data-aos="fade-up"
-                                            data-aos-duration="1200">
-                                            <div class="card-custom shadow rounded-3 mx-auto">
-                                                <video class="" controls>
-                                                    @if ($extvideo == 'mp4')
-                                                        <source src="{{ $path_video }}" alt="" type="video/mp4">
-                                                    @endif
-                                                    @if ($extvideo == 'mkv')
-                                                        <source src="{{ $path_video }}" alt="" type="video/mkv">
-                                                    @endif
-                                                    @if ($extvideo == 'webm')
-                                                        <source src="{{ $path_video }}" alt="" type="video/webm">
-                                                    @endif
-                                                </video>
-                                                <div class="category-logo">
-                                                    <i class="bi bi-film"></i>
+                                            @elseif ($item->urlgd && $item->rCategory->name == 'Video')
+                                                <div class="col col-12 col-md-6 col-lg-3 mt-4" data-aos="fade-up"
+                                                    data-aos-duration="1200">
+                                                    <div class="card-custom shadow rounded-3 mx-auto">
+                                                        <iframe src="{{ $item->urlgd }}" width="640" height="480"
+                                                            allow="autoplay" class="gd"></iframe>
+                                                        <div class="category-logo">
+                                                            <i class="bi bi-film"></i>
+                                                        </div>
+                                                        <div class="deskripsi">
+                                                            <h5 class="fw-bold teks">{{ $item->name }}</h5>
+                                                            <p class="fs-6 teks">{{ $item->body }}</p>
+                                                            <a href="{{ route('detail', [$item->slug]) }}"
+                                                                class="card-button btn btn-sm warna_search btn-danger">Detail</a>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                                <div class="deskripsi">
-                                                    <h5 class="fw-bold teks">{{ $item->name }}</h5>
-                                                    <p class="fs-6 teks">{{ $item->body }}</p>
-                                                    <a href="{{ route('detail', [$item->slug]) }}"
-                                                        class="card-button btn btn-sm warna_search btn-danger">Detail</a>
+                                            @endif
+                                        @endforeach
+                                    </div>
+                                @elseif ($page == 'Audio')
+                                    <div class="row">
+                                        @foreach ($post as $item)
+                                            @php
+                                                $path_audio = asset('storage/uploads/audio/' . $item->file);
+                                                $extaudio = pathinfo($path_audio, PATHINFO_EXTENSION);
+                                            @endphp
+                                            @if ($extaudio == 'mp3' || $extaudio == 'm4a')
+                                                <div class="col col-12 col-md-6 col-lg-3 mt-4" data-aos="fade-up"
+                                                    data-aos-duration="1200">
+                                                    <div class="card-custom shadow rounded-3 mx-auto">
+                                                        <div class="music p-5 bg-dark">
+                                                            <span class="bar"></span>
+                                                            <span class="bar"></span>
+                                                            <span class="bar"></span>
+                                                            <span class="bar"></span>
+                                                            <span class="bar"></span>
+                                                            <span class="bar"></span>
+                                                            <span class="bar"></span>
+                                                            <span class="bar"></span>
+                                                            <span class="bar"></span>
+                                                            <span class="bar"></span>
+                                                        </div>
+                                                        <div class="category-logo">
+                                                            <i class="bi bi-music-note-beamed"></i>
+                                                        </div>
+                                                        <div class="deskripsi">
+                                                            <h5 class="fw-bold teks">{{ $item->name }}</h5>
+                                                            <p class="fs-6 teks">{{ $item->body }}</p>
+                                                            @if ($extaudio == 'mp3')
+                                                                <audio src="{{ $path_audio }}" type="audio/mp3"
+                                                                    controls
+                                                                    class="waudio border border-success rounded-5"></audio>
+                                                            @endif
+                                                            @if ($extaudio == 'm4a')
+                                                                <audio src="{{ $path_audio }}" type="audio/m4a"
+                                                                    controls
+                                                                    class="waudio border border-success rounded-5"></audio>
+                                                            @endif
+                                                            <a href="{{ route('detail', [$item->slug]) }}"
+                                                                class="card-button btn btn-sm warna_search btn-danger">Detail</a>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </div>
-                                    @elseif ($item->url)
-                                        <div class="col col-12 col-md-6 col-lg-3 mt-1" data-aos="fade-up"
-                                            data-aos-duration="1200">
-                                            <div class="card-custom shadow rounded-3 mx-auto">
-                                                <x-embed url="{{ $item->url }}" aspect-ratio="4:3" />
-                                                <div class="category-logo">
-                                                    <i class="bi bi-film"></i>
+                                            @elseif ($item->urlgd && $item->rCategory->name == 'Audio')
+                                                <div class="col col-12 col-md-6 col-lg-3 mt-4" data-aos="fade-up"
+                                                    data-aos-duration="1200">
+                                                    <div class="card-custom shadow rounded-3 mx-auto">
+                                                        <iframe src="{{ $item->urlgd }}" width="640" height="480"
+                                                            allow="autoplay" class="gd"></iframe>
+                                                        <div class="category-logo">
+                                                            <i class="bi bi-music-note-beamed"></i>
+                                                        </div>
+                                                        <div class="deskripsi">
+                                                            <h5 class="fw-bold teks">{{ $item->name }}</h5>
+                                                            <p class="fs-6 teks">{{ $item->body }}</p>
+                                                            <a href="{{ route('detail', [$item->slug]) }}"
+                                                                class="card-button btn btn-sm warna_search btn-danger">Detail</a>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                                <div class="deskripsi">
-                                                    <h5 class="fw-bold teks">{{ $item->name }}</h5>
-                                                    <p class="fs-6 teks">{{ $item->body }}</p>
-                                                    <a href="{{ route('detail', [$item->slug]) }}"
-                                                        class="card-button btn btn-sm warna_search btn-danger">Detail</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    @elseif ($item->urlgd && $item->rCategory->name == 'Video')
-                                        <div class="col col-12 col-md-6 col-lg-3 mt-1" data-aos="fade-up"
-                                            data-aos-duration="1200">
-                                            <div class="card-custom shadow rounded-3 mx-auto">
-                                                <iframe src="{{ $item->urlgd }}" width="640" height="480"
-                                                    allow="autoplay" class="gd"></iframe>
-                                                <div class="category-logo">
-                                                    <i class="bi bi-film"></i>
-                                                </div>
-                                                <div class="deskripsi">
-                                                    <h5 class="fw-bold teks">{{ $item->name }}</h5>
-                                                    <p class="fs-6 teks">{{ $item->body }}</p>
-                                                    <a href="{{ route('detail', [$item->slug]) }}"
-                                                        class="card-button btn btn-sm warna_search btn-danger">Detail</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    @endif
-                                @endforeach
-                            </div>
-                        @elseif ($page == 'Audio')
-                            <div class="row">
-                                @foreach ($post as $item)
-                                    @php
-                                        $path_audio = asset('storage/uploads/audio/' . $item->file);
-                                        $extaudio = pathinfo($path_audio, PATHINFO_EXTENSION);
-                                    @endphp
-                                    @if ($extaudio == 'mp3' || $extaudio == 'm4a')
-                                        <div class="col col-12 col-md-6 col-lg-3 mt-1" data-aos="fade-up"
-                                            data-aos-duration="1200">
-                                            <div class="card-custom shadow rounded-3 mx-auto">
-                                                <div class="music p-5 bg-dark">
-                                                    <span class="bar"></span>
-                                                    <span class="bar"></span>
-                                                    <span class="bar"></span>
-                                                    <span class="bar"></span>
-                                                    <span class="bar"></span>
-                                                    <span class="bar"></span>
-                                                    <span class="bar"></span>
-                                                    <span class="bar"></span>
-                                                    <span class="bar"></span>
-                                                    <span class="bar"></span>
-                                                </div>
-                                                <div class="category-logo">
-                                                    <i class="bi bi-music-note-beamed"></i>
-                                                </div>
-                                                <div class="deskripsi">
-                                                    <h5 class="fw-bold teks">{{ $item->name }}</h5>
-                                                    <p class="fs-6 teks">{{ $item->body }}</p>
-                                                    @if ($extaudio == 'mp3')
-                                                        <audio src="{{ $path_audio }}" type="audio/mp3" controls
-                                                            class="waudio border border-success rounded-5"></audio>
-                                                    @endif
-                                                    @if ($extaudio == 'm4a')
-                                                        <audio src="{{ $path_audio }}" type="audio/m4a" controls
-                                                            class="waudio border border-success rounded-5"></audio>
-                                                    @endif
-                                                    <a href="{{ route('detail', [$item->slug]) }}"
-                                                        class="card-button btn btn-sm warna_search btn-danger">Detail</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    @elseif ($item->urlgd && $item->rCategory->name == 'Audio')
-                                        <div class="col col-12 col-md-6 col-lg-3 mt-1" data-aos="fade-up"
-                                            data-aos-duration="1200">
-                                            <div class="card-custom shadow rounded-3 mx-auto">
-                                                <iframe src="{{ $item->urlgd }}" width="640" height="480"
-                                                    allow="autoplay" class="gd"></iframe>
-                                                <div class="category-logo">
-                                                    <i class="bi bi-music-note-beamed"></i>
-                                                </div>
-                                                <div class="deskripsi">
-                                                    <h5 class="fw-bold teks">{{ $item->name }}</h5>
-                                                    <p class="fs-6 teks">{{ $item->body }}</p>
-                                                    <a href="{{ route('detail', [$item->slug]) }}"
-                                                        class="card-button btn btn-sm warna_search btn-danger">Detail</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    @endif
-                                @endforeach
-                            </div>
-                        @endif
+                                            @endif
+                                        @endforeach
+                                    </div>
+                                @endif
 
 
-                    </div>
-                    <div class="mt-5 mb-3">
-                        {{ $post->links() }}
+                            </div>
+                            <div class="mt-5 mb-3">
+                                {{ $post->links() }}
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

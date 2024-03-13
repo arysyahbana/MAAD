@@ -39,7 +39,7 @@
             @if ($extphoto == 'jpg' || $extphoto == 'png' || $extphoto == 'jpeg')
                 <div class="col col-12 col-lg-8 order-2 order-lg-1">
                     <div class="card shadow mt-5 rounded-4">
-                        <img src="{{ asset($path_photo) }}" class="img-fluid rounded-4" alt="..."
+                        <img src="{{ asset($path_photo) }}" class="img-fluid rounded-4 object-fit-cover" alt="..."
                             style="max-height: 40rem">
                     </div>
                     {{-- Photo lainnya --}}
@@ -114,7 +114,7 @@
                                 {{-- Login Premium --}}
                                 @if (Auth::guard('web')->user()->role == 'premium' || Auth::guard('web')->user()->id == $post->user_id)
                                     @if ($post->file_mentah && $post->fpgd)
-                                        <div class="col col-12 col-lg-4 mt-3">
+                                        <div class="col col-12 col-lg-7 mt-3">
                                             <a href="{{ route('download', $post->file_mentah) }}"
                                                 class="btn btn-sm btn-orange btn-danger download-btn form-control"
                                                 data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -122,7 +122,7 @@
                                                     Download {{ $extrawphoto }}</span>
                                             </a>
                                         </div>
-                                        <div class="col col-12 col-lg-4 mt-3">
+                                        <div class="col col-12 col-lg-7 mt-3">
                                             <a href="{{ $post->fpgd }}" class="btn btn-sm btn-primary form-control"
                                                 target="blank">
                                                 <span class="small"><i class="bi bi-download"></i>
@@ -130,7 +130,7 @@
                                             </a>
                                         </div>
                                     @elseif ($post->file_mentah)
-                                        <div class="col col-12 col-lg-4 mt-3">
+                                        <div class="col col-12 col-lg-7 mt-3">
                                             <a href="{{ route('download', $post->file_mentah) }}"
                                                 class="btn btn-sm btn-orange btn-danger download-btn form-control"
                                                 data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -139,7 +139,7 @@
                                             </a>
                                         </div>
                                     @elseif($post->fpgd)
-                                        <div class="col col-12 col-lg-4 mt-3">
+                                        <div class="col col-12 col-lg-7 mt-3">
                                             <a href="{{ $post->fpgd }}" class="btn btn-sm btn-primary form-control"
                                                 target="blank">
                                                 <span class="small"><i class="bi bi-download"></i>
@@ -152,14 +152,14 @@
                                 @elseif (Auth::guard('web')->user()->role == 'umum')
                                     @if ($post->file_mentah && $post->fpgd)
                                         {{-- Button trigger modal --}}
-                                        <div class="col col-12 col-lg-4 mt-3">
+                                        <div class="col col-12 col-lg-7 mt-3">
                                             <a href="#" class="btn btn-sm btn-orange btn-danger form-control"
                                                 data-bs-toggle="modal" data-bs-target="#subscribe">
                                                 <span class="small"><i class="bi bi-download"></i>
                                                     Download {{ $extrawphoto }}</span>
                                             </a>
                                         </div>
-                                        <div class="col col-12 col-lg-4 mt-3">
+                                        <div class="col col-12 col-lg-7 mt-3">
                                             <a href="#" class="btn btn-sm btn-primary form-control" data-bs-toggle="modal"
                                                 data-bs-target="#subscribe">
                                                 <span class="small"><i class="bi bi-download"></i>
@@ -167,7 +167,7 @@
                                             </a>
                                         </div>
                                     @elseif ($post->file_mentah)
-                                        <div class="col col-12 col-lg-4 mt-3">
+                                        <div class="col col-12 col-lg-7 mt-3">
                                             <a href="#" class="btn btn-sm btn-orange btn-danger form-control"
                                                 data-bs-toggle="modal" data-bs-target="#subscribe">
                                                 <span class="small"><i class="bi bi-download"></i>
@@ -175,7 +175,7 @@
                                             </a>
                                         </div>
                                     @elseif ($post->fpgd)
-                                        <div class="col col-12 col-lg-4 mt-3">
+                                        <div class="col col-12 col-lg-7 mt-3">
                                             <a href="#" class="btn btn-sm btn-primary form-control"
                                                 data-bs-toggle="modal" data-bs-target="#subscribe">
                                                 <span class="small"><i class="bi bi-download"></i>
@@ -187,14 +187,14 @@
                                     {{-- Login Pending --}}
                                 @elseif (Auth::guard('web')->user()->role == 'pending')
                                     @if ($post->file_mentah && $post->fpgd)
-                                        <div class="col col-12 col-lg-4 mt-3">
+                                        <div class="col col-12 col-lg-7 mt-3">
                                             <a href="#" class="btn btn-sm btn-orange btn-danger form-control"
                                                 onclick="loginpending()">
                                                 <span class="small"><i class="bi bi-download"></i>
                                                     Download {{ $extrawphoto }}</span>
                                             </a>
                                         </div>
-                                        <div class="col col-12 col-lg-4 mt-3">
+                                        <div class="col col-12 col-lg-7 mt-3">
                                             <a href="#" class="btn btn-sm btn-primary form-control"
                                                 onclick="loginpending()">
                                                 <span class="small"><i class="bi bi-download"></i>
@@ -202,7 +202,7 @@
                                             </a>
                                         </div>
                                     @elseif ($post->file_mentah)
-                                        <div class="col col-12 col-lg-4 mt-3">
+                                        <div class="col col-12 col-lg-7 mt-3">
                                             <a href="#" class="btn btn-sm btn-orange btn-danger form-control"
                                                 onclick="loginpending()">
                                                 <span class="small"><i class="bi bi-download"></i>
@@ -210,7 +210,7 @@
                                             </a>
                                         </div>
                                     @elseif ($post->fpgd)
-                                        <div class="col col-12 col-lg-4 mt-3">
+                                        <div class="col col-12 col-lg-7 mt-3">
                                             <a href="#" class="btn btn-sm btn-primary form-control"
                                                 onclick="loginpending()">
                                                 <span class="small"><i class="bi bi-download"></i>
@@ -222,7 +222,7 @@
                                 {{-- end Login Pending --}}
 
                                 <br>
-                                <div class="col col-12 col-lg-4 mt-3">
+                                <div class="col col-12 col-lg-7 mt-3">
                                     <a href="{{ route('download', $post->file) }}"
                                         class="btn btn-sm btn-success download-btn form-control" data-bs-toggle="modal"
                                         data-bs-target="#exampleModal">
@@ -238,21 +238,21 @@
                                         {{ $like }} Like</span></a>
 
                                 @if ($post->file_mentah && $post->fpgd)
-                                    <div class="col col-4 mt-3">
+                                    <div class="col col-12 col-lg-7 mt-3">
                                         <a href="#" class="btn btn-sm btn-orange btn-danger form-control"
                                             onclick="loginfail()">
                                             <span class="small"><i class="bi bi-download"></i>
                                                 Download {{ $extrawphoto }}</span>
                                         </a>
                                     </div>
-                                    <div class="col col-12 col-lg-4 mt-3">
+                                    <div class="col col-12 col-lg-7 mt-3">
                                         <a href="#" class="btn btn-sm btn-primary form-control" onclick="loginfail()">
                                             <span class="small"><i class="bi bi-download"></i>
                                                 Googledrive</span>
                                         </a>
                                     </div>
                                 @elseif ($post->file_mentah)
-                                    <div class="col col-4 mt-3">
+                                    <div class="col col-12 col-lg-7 mt-3">
                                         <a href="#" class="btn btn-sm btn-orange btn-danger form-control"
                                             onclick="loginfail()">
                                             <span class="small"><i class="bi bi-download"></i>
@@ -260,7 +260,7 @@
                                         </a>
                                     </div>
                                 @elseif ($post->fpgd)
-                                    <div class="col col-12 col-lg-4 mt-3">
+                                    <div class="col col-12 col-lg-7 mt-3">
                                         <a href="#" class="btn btn-sm btn-primary form-control" onclick="loginfail()">
                                             <span class="small"><i class="bi bi-download"></i>
                                                 Googledrive</span>
@@ -268,8 +268,8 @@
                                     </div>
                                 @endif
 
-                                <div class="col col-4 mt-3">
-                                    <a href="#" class="btn btn-sm btn-success" onclick="loginfail()">
+                                <div class="col col-12 col-lg-7 mt-3">
+                                    <a href="#" class="btn btn-sm btn-success form-control" onclick="loginfail()">
                                         <span class="small"><i class="bi bi-download"></i> Download
                                             {{ $extphoto }}</span>
                                     </a>
@@ -455,7 +455,7 @@
                                 {{-- Login Premium --}}
                                 @if (Auth::guard('web')->user()->role == 'premium' || Auth::guard('web')->user()->id == $post->user_id)
                                     @if ($post->file_mentah && $post->fpgd)
-                                        <div class="col col-12 col-lg-4 mt-3">
+                                        <div class="col col-12 col-lg-7 mt-3">
                                             <a href="{{ route('download', $post->file_mentah) }}"
                                                 class="btn btn-sm btn-orange btn-danger download-btn form-control"
                                                 data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -463,7 +463,7 @@
                                                     Download {{ $extrawvideo }}</span>
                                             </a>
                                         </div>
-                                        <div class="col col-12 col-lg-4 mt-3">
+                                        <div class="col col-12 col-lg-7 mt-3">
                                             <a href="{{ $post->fpgd }}" class="btn btn-sm btn-primary form-control"
                                                 target="blank">
                                                 <span class="small"><i class="bi bi-download"></i>
@@ -471,7 +471,7 @@
                                             </a>
                                         </div>
                                     @elseif ($post->file_mentah)
-                                        <div class="col col-12 col-lg-4 mt-3">
+                                        <div class="col col-12 col-lg-7 mt-3">
                                             <a href="{{ route('download', $post->file_mentah) }}"
                                                 class="btn btn-sm btn-orange btn-danger download-btn form-control"
                                                 data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -480,7 +480,7 @@
                                             </a>
                                         </div>
                                     @elseif ($post->fpgd)
-                                        <div class="col col-12 col-lg-4 mt-3">
+                                        <div class="col col-12 col-lg-7 mt-3">
                                             <a href="{{ $post->fpgd }}" class="btn btn-sm btn-primary form-control"
                                                 target="blank">
                                                 <span class="small"><i class="bi bi-download"></i>
@@ -493,14 +493,14 @@
                                 @elseif (Auth::guard('web')->user()->role == 'umum')
                                     @if ($post->file_mentah && $post->fpgd)
                                         {{-- Button trigger modal --}}
-                                        <div class="col col-12 col-lg-4 mt-3">
+                                        <div class="col col-12 col-lg-7 mt-3">
                                             <a href="#" class="btn btn-sm btn-orange btn-danger form-control"
                                                 data-bs-toggle="modal" data-bs-target="#subscribe">
                                                 <span class="small"><i class="bi bi-download"></i>
                                                     Download {{ $extrawvideo }}</span>
                                             </a>
                                         </div>
-                                        <div class="col col-12 col-lg-4 mt-3">
+                                        <div class="col col-12 col-lg-7 mt-3">
                                             <a href="#" class="btn btn-sm btn-primary form-control"
                                                 data-bs-toggle="modal" data-bs-target="#subscribe">
                                                 <span class="small"><i class="bi bi-download"></i>
@@ -508,7 +508,7 @@
                                             </a>
                                         </div>
                                     @elseif ($post->file_mentah)
-                                        <div class="col col-12 col-lg-4 mt-3">
+                                        <div class="col col-12 col-lg-7 mt-3">
                                             <a href="#" class="btn btn-sm btn-orange btn-danger form-control"
                                                 data-bs-toggle="modal" data-bs-target="#subscribe">
                                                 <span class="small"><i class="bi bi-download"></i>
@@ -516,7 +516,7 @@
                                             </a>
                                         </div>
                                     @elseif($post->fpgd)
-                                        <div class="col col-12 col-lg-4 mt-3">
+                                        <div class="col col-12 col-lg-7 mt-3">
                                             <a href="#" class="btn btn-sm btn-primary form-control"
                                                 data-bs-toggle="modal" data-bs-target="#subscribe">
                                                 <span class="small"><i class="bi bi-download"></i>
@@ -528,14 +528,14 @@
                                     {{-- Login Pending --}}
                                 @elseif (Auth::guard('web')->user()->role == 'pending')
                                     @if ($post->file_mentah && $post->fpgd)
-                                        <div class="col col-12 col-lg-4 mt-3">
+                                        <div class="col col-12 col-lg-7 mt-3">
                                             <a href="#" class="btn btn-sm btn-orange btn-danger form-control"
                                                 onclick="loginpending()">
                                                 <span class="small"><i class="bi bi-download"></i>
                                                     Download {{ $extrawvideo }}</span>
                                             </a>
                                         </div>
-                                        <div class="col col-12 col-lg-4 mt-3">
+                                        <div class="col col-12 col-lg-7 mt-3">
                                             <a href="#" class="btn btn-sm btn-primary form-control"
                                                 onclick="loginpending()">
                                                 <span class="small"><i class="bi bi-download"></i>
@@ -543,7 +543,7 @@
                                             </a>
                                         </div>
                                     @elseif ($post->file_mentah)
-                                        <div class="col col-12 col-lg-4 mt-3">
+                                        <div class="col col-12 col-lg-7 mt-3">
                                             <a href="#" class="btn btn-sm btn-orange btn-danger form-control"
                                                 onclick="loginpending()">
                                                 <span class="small"><i class="bi bi-download"></i>
@@ -551,7 +551,7 @@
                                             </a>
                                         </div>
                                     @elseif ($post->fpgd)
-                                        <div class="col col-12 col-lg-4 mt-3">
+                                        <div class="col col-12 col-lg-7 mt-3">
                                             <a href="#" class="btn btn-sm btn-primary form-control"
                                                 onclick="loginpending()">
                                                 <span class="small"><i class="bi bi-download"></i>
@@ -563,7 +563,7 @@
                                 {{-- end Login Pending --}}
 
                                 <br>
-                                <div class="col col-12 col-lg-4 mt-3">
+                                <div class="col col-12 col-lg-7 mt-3">
                                     <div class="btn-group dropend">
                                         <button type="button" class="btn btn-sm btn-success dropdown-toggle"
                                             data-bs-toggle="dropdown" aria-expanded="false">
@@ -589,21 +589,21 @@
                                         {{ $like }} Like</span></a>
 
                                 @if ($post->file_mentah && $post->fpgd)
-                                    <div class="col col-12 col-lg-4 mt-3">
+                                    <div class="col col-12 col-lg-7 mt-3">
                                         <a href="#" class="btn btn-sm btn-orange btn-danger form-control"
                                             onclick="loginfail()">
                                             <span class="small"><i class="bi bi-download"></i>
                                                 Download {{ $extrawvideo }}</span>
                                         </a>
                                     </div>
-                                    <div class="col col-12 col-lg-4 mt-3">
+                                    <div class="col col-12 col-lg-7 mt-3">
                                         <a href="#" class="btn btn-sm btn-primary form-control" onclick="loginfail()">
                                             <span class="small"><i class="bi bi-download"></i>
                                                 Googledrive</span>
                                         </a>
                                     </div>
                                 @elseif ($post->file_mentah)
-                                    <div class="col col-12 col-lg-4 mt-3">
+                                    <div class="col col-12 col-lg-7 mt-3">
                                         <a href="#" class="btn btn-sm btn-orange btn-danger form-control"
                                             onclick="loginfail()">
                                             <span class="small"><i class="bi bi-download"></i>
@@ -611,7 +611,7 @@
                                         </a>
                                     </div>
                                 @elseif ($post->fpgd)
-                                    <div class="col col-12 col-lg-4 mt-3">
+                                    <div class="col col-12 col-lg-7 mt-3">
                                         <a href="#" class="btn btn-sm btn-primary form-control" onclick="loginfail()">
                                             <span class="small"><i class="bi bi-download"></i>
                                                 Googledrive</span>
@@ -619,7 +619,7 @@
                                     </div>
                                 @endif
 
-                                <div class="col col-12 col-lg-4 mt-3">
+                                <div class="col col-12 col-lg-7 mt-3">
                                     <a href="#" class="btn btn-sm btn-success form-control" onclick="loginfail()">
                                         <span class="small"><i class="bi bi-download"></i> Download
                                             {{ $extvideo }}</span>
@@ -756,7 +756,7 @@
                                 {{-- Login Premium --}}
                                 @if (Auth::guard('web')->user()->role == 'premium' || Auth::guard('web')->user()->id == $post->user_id)
                                     @if ($post->file_mentah && $post->fpgd)
-                                        <div class="col col-12 col-lg-4 mt-3">
+                                        <div class="col col-12 col-lg-7 mt-3">
                                             <a href="{{ route('download', $post->file_mentah) }}"
                                                 class="btn btn-sm btn-orange btn-danger download-btn form-control"
                                                 data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -764,7 +764,7 @@
                                                     Download {{ $extrawaudio }}</span>
                                             </a>
                                         </div>
-                                        <div class="col col-12 col-lg-4 mt-3">
+                                        <div class="col col-12 col-lg-7 mt-3">
                                             <a href="{{ $post->fpgd }}" class="btn btn-sm btn-primary form-control"
                                                 target="blank">
                                                 <span class="small"><i class="bi bi-download"></i>
@@ -772,7 +772,7 @@
                                             </a>
                                         </div>
                                     @elseif ($post->file_mentah)
-                                        <div class="col col-12 col-lg-4 mt-3">
+                                        <div class="col col-12 col-lg-7 mt-3">
                                             <a href="{{ route('download', $post->file_mentah) }}"
                                                 class="btn btn-sm btn-orange btn-danger download-btn form-control"
                                                 data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -781,7 +781,7 @@
                                             </a>
                                         </div>
                                     @elseif ($post->fpgd)
-                                        <div class="col col-12 col-lg-4 mt-3">
+                                        <div class="col col-12 col-lg-7 mt-3">
                                             <a href="{{ $post->fpgd }}" class="btn btn-sm btn-primary form-control"
                                                 target="blank">
                                                 <span class="small"><i class="bi bi-download"></i>
@@ -794,14 +794,14 @@
                                 @elseif (Auth::guard('web')->user()->role == 'umum')
                                     @if ($post->file_mentah && $post->fpgd)
                                         {{-- Button trigger modal --}}
-                                        <div class="col col-12 col-lg-4 mt-3">
+                                        <div class="col col-12 col-lg-7 mt-3">
                                             <a href="#" class="btn btn-sm btn-orange btn-danger form-control"
                                                 data-bs-toggle="modal" data-bs-target="#subscribe">
                                                 <span class="small"><i class="bi bi-download"></i>
                                                     Download {{ $extrawaudio }}</span>
                                             </a>
                                         </div>
-                                        <div class="col col-12 col-lg-4 mt-3">
+                                        <div class="col col-12 col-lg-7 mt-3">
                                             <a href="#" class="btn btn-sm btn-primary form-control"
                                                 data-bs-toggle="modal" data-bs-target="#subscribe">
                                                 <span class="small"><i class="bi bi-download"></i>
@@ -809,7 +809,7 @@
                                             </a>
                                         </div>
                                     @elseif ($post->file_mentah)
-                                        <div class="col col-12 col-lg-4 mt-3">
+                                        <div class="col col-12 col-lg-7 mt-3">
                                             <a href="#" class="btn btn-sm btn-orange btn-danger form-control"
                                                 data-bs-toggle="modal" data-bs-target="#subscribe">
                                                 <span class="small"><i class="bi bi-download"></i>
@@ -817,7 +817,7 @@
                                             </a>
                                         </div>
                                     @elseif ($post->fpgd)
-                                        <div class="col col-12 col-lg-4 mt-3">
+                                        <div class="col col-12 col-lg-7 mt-3">
                                             <a href="#" class="btn btn-sm btn-primary form-control"
                                                 data-bs-toggle="modal" data-bs-target="#subscribe">
                                                 <span class="small"><i class="bi bi-download"></i>
@@ -829,14 +829,14 @@
                                     {{-- Login Pending --}}
                                 @elseif (Auth::guard('web')->user()->role == 'pending')
                                     @if ($post->file_mentah && $post->fpgd)
-                                        <div class="col col-12 col-lg-4 mt-3">
+                                        <div class="col col-12 col-lg-7 mt-3">
                                             <a href="#" class="btn btn-sm btn-orange btn-danger form-control"
                                                 onclick="loginpending()">
                                                 <span class="small"><i class="bi bi-download"></i>
                                                     Download {{ $extrawaudio }}</span>
                                             </a>
                                         </div>
-                                        <div class="col col-12 col-lg-4 mt-3">
+                                        <div class="col col-12 col-lg-7 mt-3">
                                             <a href="#" class="btn btn-sm btn-primary form-control"
                                                 onclick="loginpending()">
                                                 <span class="small"><i class="bi bi-download"></i>
@@ -844,7 +844,7 @@
                                             </a>
                                         </div>
                                     @elseif ($post->file_mentah)
-                                        <div class="col col-12 col-lg-4 mt-3">
+                                        <div class="col col-12 col-lg-7 mt-3">
                                             <a href="#" class="btn btn-sm btn-orange btn-danger form-control"
                                                 onclick="loginpending()">
                                                 <span class="small"><i class="bi bi-download"></i>
@@ -852,7 +852,7 @@
                                             </a>
                                         </div>
                                     @elseif ($post->fpgd)
-                                        <div class="col col-12 col-lg-4 mt-3">
+                                        <div class="col col-12 col-lg-7 mt-3">
                                             <a href="#" class="btn btn-sm btn-primary form-control"
                                                 onclick="loginpending()">
                                                 <span class="small"><i class="bi bi-download"></i>
@@ -864,7 +864,7 @@
                                 {{-- end Login Pending --}}
 
                                 <br>
-                                <div class="col col-12 col-lg-4 mt-3">
+                                <div class="col col-12 col-lg-7 mt-3">
                                     <a href="{{ route('download', $post->file) }}"
                                         class="btn btn-sm btn-success download-btn form-control" data-bs-toggle="modal"
                                         data-bs-target="#exampleModal">
@@ -880,27 +880,29 @@
                                         {{ $like }} Like</span></a>
 
                                 @if ($post->file_mentah && $post->fpgd)
-                                    <div class="col col-12 col-lg-4 mt-3">
-                                        <a href="#" class="btn btn-sm btn-orange btn-danger" onclick="loginfail()">
+                                    <div class="col col-12 col-lg-7 mt-3">
+                                        <a href="#" class="btn btn-sm btn-orange btn-danger form-control"
+                                            onclick="loginfail()">
                                             <span class="small"><i class="bi bi-download"></i>
                                                 Download {{ $extrawaudio }}</span>
                                         </a>
                                     </div>
-                                    <div class="col col-12 col-lg-4 mt-3">
+                                    <div class="col col-12 col-lg-7 mt-3">
                                         <a href="#" class="btn btn-sm btn-primary form-control" onclick="loginfail()">
                                             <span class="small"><i class="bi bi-download"></i>
                                                 Googledrive</span>
                                         </a>
                                     </div>
                                 @elseif ($post->file_mentah)
-                                    <div class="col col-12 col-lg-4 mt-3">
-                                        <a href="#" class="btn btn-sm btn-orange btn-danger" onclick="loginfail()">
+                                    <div class="col col-12 col-lg-7 mt-3">
+                                        <a href="#" class="btn btn-sm btn-orange btn-danger form-control"
+                                            onclick="loginfail()">
                                             <span class="small"><i class="bi bi-download"></i>
                                                 Download {{ $extrawaudio }}</span>
                                         </a>
                                     </div>
                                 @elseif ($post->fpgd)
-                                    <div class="col col-12 col-lg-4 mt-3">
+                                    <div class="col col-12 col-lg-7 mt-3">
                                         <a href="#" class="btn btn-sm btn-primary form-control" onclick="loginfail()">
                                             <span class="small"><i class="bi bi-download"></i>
                                                 Googledrive</span>
@@ -908,7 +910,7 @@
                                     </div>
                                 @endif
 
-                                <div class="col col-12 col-lg-4 mt-3">
+                                <div class="col col-12 col-lg-7 mt-3">
                                     <a href="#" class="btn btn-sm btn-success form-control" onclick="loginfail()">
                                         <span class="small"><i class="bi bi-download"></i> Download
                                             {{ $extaudio }}</span>
@@ -1030,7 +1032,7 @@
                                 {{-- Login Premium --}}
                                 @if (Auth::guard('web')->user()->role == 'premium' || Auth::guard('web')->user()->id == $post->user_id)
                                     @if ($post->file_mentah && $post->fpgd)
-                                        <div class="col col-12 col-lg-4 mt-3">
+                                        <div class="col col-12 col-lg-7 mt-3">
                                             <a href="{{ route('download', $post->file_mentah) }}"
                                                 class="btn btn-sm btn-orange btn-danger download-btn form-control"
                                                 data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -1038,7 +1040,7 @@
                                                     Download {{ $extrawvideo }}</span>
                                             </a>
                                         </div>
-                                        <div class="col col-12 col-lg-4 mt-3">
+                                        <div class="col col-12 col-lg-7 mt-3">
                                             <a href="{{ $post->fpgd }}" class="btn btn-sm btn-primary form-control"
                                                 target="blank">
                                                 <span class="small"><i class="bi bi-download"></i>
@@ -1046,7 +1048,7 @@
                                             </a>
                                         </div>
                                     @elseif ($post->file_mentah)
-                                        <div class="col col-12 col-lg-4 mt-3">
+                                        <div class="col col-12 col-lg-7 mt-3">
                                             <a href="{{ route('download', $post->file_mentah) }}"
                                                 class="btn btn-sm btn-orange btn-danger download-btn form-control"
                                                 data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -1055,7 +1057,7 @@
                                             </a>
                                         </div>
                                     @elseif ($post->fpgd)
-                                        <div class="col col-12 col-lg-4 mt-3">
+                                        <div class="col col-12 col-lg-7 mt-3">
                                             <a href="{{ $post->fpgd }}" class="btn btn-sm btn-primary form-control"
                                                 target="blank">
                                                 <span class="small"><i class="bi bi-download"></i>
@@ -1068,14 +1070,14 @@
                                 @elseif (Auth::guard('web')->user()->role == 'umum')
                                     @if ($post->file_mentah && $post->fpgd)
                                         {{-- Button trigger modal --}}
-                                        <div class="col col-12 col-lg-4 mt-3">
+                                        <div class="col col-12 col-lg-7 mt-3">
                                             <a href="#" class="btn btn-sm btn-orange btn-danger form-control"
                                                 data-bs-toggle="modal" data-bs-target="#subscribe">
                                                 <span class="small"><i class="bi bi-download"></i>
                                                     Download {{ $extrawvideo }}</span>
                                             </a>
                                         </div>
-                                        <div class="col col-12 col-lg-4 mt-3">
+                                        <div class="col col-12 col-lg-7 mt-3">
                                             <a href="#" class="btn btn-sm btn-primary form-control"
                                                 data-bs-toggle="modal" data-bs-target="#subscribe">
                                                 <span class="small"><i class="bi bi-download"></i>
@@ -1083,7 +1085,7 @@
                                             </a>
                                         </div>
                                     @elseif ($post->file_mentah)
-                                        <div class="col col-12 col-lg-4 mt-3">
+                                        <div class="col col-12 col-lg-7 mt-3">
                                             <a href="#" class="btn btn-sm btn-orange btn-danger form-control"
                                                 data-bs-toggle="modal" data-bs-target="#subscribe">
                                                 <span class="small"><i class="bi bi-download"></i>
@@ -1091,7 +1093,7 @@
                                             </a>
                                         </div>
                                     @elseif ($post->fpgd)
-                                        <div class="col col-12 col-lg-4 mt-3">
+                                        <div class="col col-12 col-lg-7 mt-3">
                                             <a href="#" class="btn btn-sm btn-primary form-control"
                                                 data-bs-toggle="modal" data-bs-target="#subscribe">
                                                 <span class="small"><i class="bi bi-download"></i>
@@ -1103,14 +1105,14 @@
                                     {{-- Login Pending --}}
                                 @elseif (Auth::guard('web')->user()->role == 'pending')
                                     @if ($post->file_mentah && $post->fpgd)
-                                        <div class="col col-12 col-lg-4 mt-3">
+                                        <div class="col col-12 col-lg-7 mt-3">
                                             <a href="#" class="btn btn-sm btn-orange btn-danger form-control"
                                                 onclick="loginpending()">
                                                 <span class="small"><i class="bi bi-download"></i>
                                                     Download {{ $extrawvideo }}</span>
                                             </a>
                                         </div>
-                                        <div class="col col-12 col-lg-4 mt-3">
+                                        <div class="col col-12 col-lg-7 mt-3">
                                             <a href="#" class="btn btn-sm btn-primary form-control"
                                                 onclick="loginpending()">
                                                 <span class="small"><i class="bi bi-download"></i>
@@ -1118,7 +1120,7 @@
                                             </a>
                                         </div>
                                     @elseif ($post->file_mentah)
-                                        <div class="col col-12 col-lg-4 mt-3">
+                                        <div class="col col-12 col-lg-7 mt-3">
                                             <a href="#" class="btn btn-sm btn-orange btn-danger form-control"
                                                 onclick="loginpending()">
                                                 <span class="small"><i class="bi bi-download"></i>
@@ -1126,7 +1128,7 @@
                                             </a>
                                         </div>
                                     @elseif ($post->fpgd)
-                                        <div class="col col-12 col-lg-4 mt-3">
+                                        <div class="col col-12 col-lg-7 mt-3">
                                             <a href="#" class="btn btn-sm btn-primary form-control"
                                                 onclick="loginpending()">
                                                 <span class="small"><i class="bi bi-download"></i>
@@ -1145,21 +1147,21 @@
                                         {{ $like }} Like</span></a>
 
                                 @if ($post->file_mentah && $post->fpgd)
-                                    <div class="col col-12 col-lg-4 mt-3">
+                                    <div class="col col-12 col-lg-7 mt-3">
                                         <a href="#" class="btn btn-sm btn-orange btn-danger form-control"
                                             onclick="loginfail()">
                                             <span class="small"><i class="bi bi-download"></i>
                                                 Download {{ $extrawvideo }}</span>
                                         </a>
                                     </div>
-                                    <div class="col col-12 col-lg-4 mt-3">
+                                    <div class="col col-12 col-lg-7 mt-3">
                                         <a href="#" class="btn btn-sm btn-primary form-control" onclick="loginfail()">
                                             <span class="small"><i class="bi bi-download"></i>
                                                 Googledrive</span>
                                         </a>
                                     </div>
                                 @elseif ($post->file_mentah)
-                                    <div class="col col-12 col-lg-4 mt-3">
+                                    <div class="col col-12 col-lg-7 mt-3">
                                         <a href="#" class="btn btn-sm btn-orange btn-danger form-control"
                                             onclick="loginfail()">
                                             <span class="small"><i class="bi bi-download"></i>
@@ -1167,7 +1169,7 @@
                                         </a>
                                     </div>
                                 @elseif ($post->fpgd)
-                                    <div class="col col-12 col-lg-4 mt-3">
+                                    <div class="col col-12 col-lg-7 mt-3">
                                         <a href="#" class="btn btn-sm btn-primary form-control" onclick="loginfail()">
                                             <span class="small"><i class="bi bi-download"></i>
                                                 Googledrive</span>
@@ -1187,8 +1189,9 @@
             {{-- Googledrive --}}
             @if ($post->urlgd)
                 <div class="col col-12 col-lg-8 pt-5 order-2 order-lg-1">
-                    <div class="card shadow">
-                        <iframe src="{{ $post->urlgd }}" width="854" height="480" allow="autoplay"></iframe>
+                    <div class="card shadow overflow-scroll">
+                        <iframe src="{{ $post->urlgd }}" width="854" height="480" allow="autoplay"
+                            class="object-fit-fill"></iframe>
                     </div>
 
                     <div class="row">
@@ -1405,10 +1408,10 @@
                                 {{-- Login Premium --}}
                                 @if (Auth::guard('web')->user()->role == 'premium' || Auth::guard('web')->user()->id == $post->user_id)
                                     @if ($post->file_mentah && $post->fpgd)
-                                        <div class="col col-12 col-lg-4 mt-3">
+                                        <div class="col col-12 col-lg-7 mt-3">
                                             @if ($post->rCategory->name == 'Photo')
                                                 <a href="{{ route('download', $post->file_mentah) }}"
-                                                    class="btn btn-sm btn-orange btn-danger download-btn"
+                                                    class="btn btn-sm btn-orange btn-danger download-btn form-control"
                                                     data-bs-toggle="modal" data-bs-target="#exampleModal">
                                                     <span class="small">
                                                         <i class="bi bi-download"></i> Download
@@ -1417,7 +1420,7 @@
                                                 </a>
                                             @elseif ($post->rCategory->name == 'Video')
                                                 <a href="{{ route('download', $post->file_mentah) }}"
-                                                    class="btn btn-sm btn-orange btn-danger download-btn"
+                                                    class="btn btn-sm btn-orange btn-danger download-btn form-control"
                                                     data-bs-toggle="modal" data-bs-target="#exampleModal">
                                                     <span class="small">
                                                         <i class="bi bi-download"></i> Download
@@ -1426,7 +1429,7 @@
                                                 </a>
                                             @elseif ($post->rCategory->name == 'Audio')
                                                 <a href="{{ route('download', $post->file_mentah) }}"
-                                                    class="btn btn-sm btn-orange btn-danger download-btn"
+                                                    class="btn btn-sm btn-orange btn-danger download-btn form-control"
                                                     data-bs-toggle="modal" data-bs-target="#exampleModal">
                                                     <span class="small">
                                                         <i class="bi bi-download"></i> Download
@@ -1435,7 +1438,7 @@
                                                 </a>
                                             @endif
                                         </div>
-                                        <div class="col col-12 col-lg-4 mt-3">
+                                        <div class="col col-12 col-lg-7 mt-3">
                                             <a href="{{ $post->fpgd }}" class="btn btn-sm btn-primary form-control"
                                                 target="blank">
                                                 <span class="small"><i class="bi bi-download"></i>
@@ -1443,10 +1446,10 @@
                                             </a>
                                         </div>
                                     @elseif ($post->file_mentah)
-                                        <div class="col col-12 col-lg-4 mt-3">
+                                        <div class="col col-12 col-lg-7 mt-3">
                                             @if ($post->rCategory->name == 'Photo')
                                                 <a href="{{ route('download', $post->file_mentah) }}"
-                                                    class="btn btn-sm btn-orange btn-danger download-btn"
+                                                    class="btn btn-sm btn-orange btn-danger download-btn form-control"
                                                     data-bs-toggle="modal" data-bs-target="#exampleModal">
                                                     <span class="small">
                                                         <i class="bi bi-download"></i> Download
@@ -1455,7 +1458,7 @@
                                                 </a>
                                             @elseif ($post->rCategory->name == 'Video')
                                                 <a href="{{ route('download', $post->file_mentah) }}"
-                                                    class="btn btn-sm btn-orange btn-danger download-btn"
+                                                    class="btn btn-sm btn-orange btn-danger download-btn form-control"
                                                     data-bs-toggle="modal" data-bs-target="#exampleModal">
                                                     <span class="small">
                                                         <i class="bi bi-download"></i> Download
@@ -1464,7 +1467,7 @@
                                                 </a>
                                             @elseif ($post->rCategory->name == 'Audio')
                                                 <a href="{{ route('download', $post->file_mentah) }}"
-                                                    class="btn btn-sm btn-orange btn-danger download-btn"
+                                                    class="btn btn-sm btn-orange btn-danger download-btn form-control"
                                                     data-bs-toggle="modal" data-bs-target="#exampleModal">
                                                     <span class="small">
                                                         <i class="bi bi-download"></i> Download
@@ -1474,7 +1477,7 @@
                                             @endif
                                         </div>
                                     @elseif ($post->fpgd)
-                                        <div class="col col-12 col-lg-4 mt-3">
+                                        <div class="col col-12 col-lg-7 mt-3">
                                             <a href="{{ $post->fpgd }}" class="btn btn-sm btn-primary form-control"
                                                 target="blank">
                                                 <span class="small"><i class="bi bi-download"></i>
@@ -1489,9 +1492,9 @@
                                 @elseif (Auth::guard('web')->user()->role == 'umum')
                                     {{-- Button trigger modal --}}
                                     @if ($post->file_mentah && $post->fpgd)
-                                        <div class="col col-12 col-lg-4 mt-3">
+                                        <div class="col col-12 col-lg-7 mt-3">
                                             @if ($post->rCategory->name == 'Photo')
-                                                <a href="#" class="btn btn-sm btn-orange btn-danger"
+                                                <a href="#" class="btn btn-sm btn-orange btn-danger form-control"
                                                     data-bs-toggle="modal" data-bs-target="#subscribe">
                                                     <span class="small">
                                                         <i class="bi bi-download"></i> Download
@@ -1499,7 +1502,7 @@
                                                     </span>
                                                 </a>
                                             @elseif ($post->rCategory->name == 'Video')
-                                                <a href="#" class="btn btn-sm btn-orange btn-danger"
+                                                <a href="#" class="btn btn-sm btn-orange btn-danger form-control"
                                                     data-bs-toggle="modal" data-bs-target="#subscribe">
                                                     <span class="small">
                                                         <i class="bi bi-download"></i> Download
@@ -1507,7 +1510,7 @@
                                                     </span>
                                                 </a>
                                             @elseif ($post->rCategory->name == 'Audio')
-                                                <a href="#" class="btn btn-sm btn-orange btn-danger"
+                                                <a href="#" class="btn btn-sm btn-orange btn-danger form-control"
                                                     data-bs-toggle="modal" data-bs-target="#subscribe">
                                                     <span class="small">
                                                         <i class="bi bi-download"></i> Download
@@ -1516,7 +1519,7 @@
                                                 </a>
                                             @endif
                                         </div>
-                                        <div class="col col-12 col-lg-4 mt-3">
+                                        <div class="col col-12 col-lg-7 mt-3">
                                             <a href="#" class="btn btn-sm btn-primary form-control"
                                                 data-bs-toggle="modal" data-bs-target="#subscribe">
                                                 <span class="small"><i class="bi bi-download"></i>
@@ -1524,9 +1527,9 @@
                                             </a>
                                         </div>
                                     @elseif ($post->file_mentah)
-                                        <div class="col col-12 col-lg-4 mt-3">
+                                        <div class="col col-12 col-lg-7 mt-3">
                                             @if ($post->rCategory->name == 'Photo')
-                                                <a href="#" class="btn btn-sm btn-orange btn-danger"
+                                                <a href="#" class="btn btn-sm btn-orange btn-danger form-control"
                                                     data-bs-toggle="modal" data-bs-target="#subscribe">
                                                     <span class="small">
                                                         <i class="bi bi-download"></i> Download
@@ -1534,7 +1537,7 @@
                                                     </span>
                                                 </a>
                                             @elseif ($post->rCategory->name == 'Video')
-                                                <a href="#" class="btn btn-sm btn-orange btn-danger"
+                                                <a href="#" class="btn btn-sm btn-orange btn-danger form-control"
                                                     data-bs-toggle="modal" data-bs-target="#subscribe">
                                                     <span class="small">
                                                         <i class="bi bi-download"></i> Download
@@ -1542,7 +1545,7 @@
                                                     </span>
                                                 </a>
                                             @elseif ($post->rCategory->name == 'Audio')
-                                                <a href="#" class="btn btn-sm btn-orange btn-danger"
+                                                <a href="#" class="btn btn-sm btn-orange btn-danger form-control"
                                                     data-bs-toggle="modal" data-bs-target="#subscribe">
                                                     <span class="small">
                                                         <i class="bi bi-download"></i> Download
@@ -1552,7 +1555,7 @@
                                             @endif
                                         </div>
                                     @elseif ($post->fpgd)
-                                        <div class="col col-12 col-lg-4 mt-3">
+                                        <div class="col col-12 col-lg-7 mt-3">
                                             <a href="#" class="btn btn-sm btn-primary form-control"
                                                 data-bs-toggle="modal" data-bs-target="#subscribe">
                                                 <span class="small"><i class="bi bi-download"></i>
@@ -1564,9 +1567,9 @@
                                     {{-- Login Pending --}}
                                 @elseif (Auth::guard('web')->user()->role == 'pending')
                                     @if ($post->file_mentah && $post->fpgd)
-                                        <div class="col col-12 col-lg-4 mt-3">
+                                        <div class="col col-12 col-lg-7 mt-3">
                                             @if ($post->rCategory->name == 'Photo')
-                                                <a href="#" class="btn btn-sm btn-orange btn-danger"
+                                                <a href="#" class="btn btn-sm btn-orange btn-danger form-control"
                                                     onclick="loginpending()">
                                                     <span class="small">
                                                         <i class="bi bi-download"></i> Download
@@ -1574,7 +1577,7 @@
                                                     </span>
                                                 </a>
                                             @elseif ($post->rCategory->name == 'Video')
-                                                <a href="#" class="btn btn-sm btn-orange btn-danger"
+                                                <a href="#" class="btn btn-sm btn-orange btn-danger form-control"
                                                     onclick="loginpending()">
                                                     <span class="small">
                                                         <i class="bi bi-download"></i> Download
@@ -1582,7 +1585,7 @@
                                                     </span>
                                                 </a>
                                             @elseif ($post->rCategory->name == 'Audio')
-                                                <a href="#" class="btn btn-sm btn-orange btn-danger"
+                                                <a href="#" class="btn btn-sm btn-orange btn-danger form-control"
                                                     onclick="loginpending()">
                                                     <span class="small">
                                                         <i class="bi bi-download"></i> Download
@@ -1591,7 +1594,7 @@
                                                 </a>
                                             @endif
                                         </div>
-                                        <div class="col col-12 col-lg-4 mt-3">
+                                        <div class="col col-12 col-lg-7 mt-3">
                                             <a href="#" class="btn btn-sm btn-primary form-control"
                                                 onclick="loginpending()">
                                                 <span class="small"><i class="bi bi-download"></i>
@@ -1599,9 +1602,9 @@
                                             </a>
                                         </div>
                                     @elseif ($post->file_mentah)
-                                        <div class="col col-12 col-lg-4 mt-3">
+                                        <div class="col col-12 col-lg-7 mt-3">
                                             @if ($post->rCategory->name == 'Photo')
-                                                <a href="#" class="btn btn-sm btn-orange btn-danger"
+                                                <a href="#" class="btn btn-sm btn-orange btn-danger form-control"
                                                     onclick="loginpending()">
                                                     <span class="small">
                                                         <i class="bi bi-download"></i> Download
@@ -1609,7 +1612,7 @@
                                                     </span>
                                                 </a>
                                             @elseif ($post->rCategory->name == 'Video')
-                                                <a href="#" class="btn btn-sm btn-orange btn-danger"
+                                                <a href="#" class="btn btn-sm btn-orange btn-danger form-control"
                                                     onclick="loginpending()">
                                                     <span class="small">
                                                         <i class="bi bi-download"></i> Download
@@ -1617,7 +1620,7 @@
                                                     </span>
                                                 </a>
                                             @elseif ($post->rCategory->name == 'Audio')
-                                                <a href="#" class="btn btn-sm btn-orange btn-danger"
+                                                <a href="#" class="btn btn-sm btn-orange btn-danger form-control"
                                                     onclick="loginpending()">
                                                     <span class="small">
                                                         <i class="bi bi-download"></i> Download
@@ -1627,7 +1630,7 @@
                                             @endif
                                         </div>
                                     @elseif ($post->fpgd)
-                                        <div class="col col-12 col-lg-4 mt-3">
+                                        <div class="col col-12 col-lg-7 mt-3">
                                             <a href="#" class="btn btn-sm btn-primary form-control"
                                                 onclick="loginpending()">
                                                 <span class="small"><i class="bi bi-download"></i>
@@ -1645,9 +1648,9 @@
                                         class="small"><i class="bi bi-heart-fill"></i>
                                         {{ $like }} Like</span></a>
                                 @if ($post->file_mentah && $post->fpgd)
-                                    <div class="col col-12 col-lg-4 mt-3">
+                                    <div class="col col-12 col-lg-7 mt-3">
                                         @if ($post->rCategory->name == 'Photo')
-                                            <a href="#" class="btn btn-sm btn-orange btn-danger"
+                                            <a href="#" class="btn btn-sm btn-orange btn-danger form-control"
                                                 onclick="loginfail()">
                                                 <span class="small">
                                                     <i class="bi bi-download"></i> Download
@@ -1655,7 +1658,7 @@
                                                 </span>
                                             </a>
                                         @elseif ($post->rCategory->name == 'Video')
-                                            <a href="#" class="btn btn-sm btn-orange btn-danger"
+                                            <a href="#" class="btn btn-sm btn-orange btn-danger form-control"
                                                 onclick="loginfail()">
                                                 <span class="small">
                                                     <i class="bi bi-download"></i> Download
@@ -1663,7 +1666,7 @@
                                                 </span>
                                             </a>
                                         @elseif ($post->rCategory->name == 'Audio')
-                                            <a href="#" class="btn btn-sm btn-orange btn-danger"
+                                            <a href="#" class="btn btn-sm btn-orange btn-danger form-control"
                                                 onclick="loginfail()">
                                                 <span class="small">
                                                     <i class="bi bi-download"></i> Download
@@ -1672,7 +1675,7 @@
                                             </a>
                                         @endif
                                     </div>
-                                    <div class="col col-12 col-lg-4 mt-3">
+                                    <div class="col col-12 col-lg-7 mt-3">
                                         <a href="#" class="btn btn-sm btn-primary form-control"
                                             onclick="loginfail()">
                                             <span class="small"><i class="bi bi-download"></i>
@@ -1680,9 +1683,9 @@
                                         </a>
                                     </div>
                                 @elseif ($post->file_mentah)
-                                    <div class="col col-12 col-lg-4 mt-3">
+                                    <div class="col col-12 col-lg-7 mt-3">
                                         @if ($post->rCategory->name == 'Photo')
-                                            <a href="#" class="btn btn-sm btn-orange btn-danger"
+                                            <a href="#" class="btn btn-sm btn-orange btn-danger form-control"
                                                 onclick="loginfail()">
                                                 <span class="small">
                                                     <i class="bi bi-download"></i> Download
@@ -1690,7 +1693,7 @@
                                                 </span>
                                             </a>
                                         @elseif ($post->rCategory->name == 'Video')
-                                            <a href="#" class="btn btn-sm btn-orange btn-danger"
+                                            <a href="#" class="btn btn-sm btn-orange btn-danger form-control"
                                                 onclick="loginfail()">
                                                 <span class="small">
                                                     <i class="bi bi-download"></i> Download
@@ -1698,7 +1701,7 @@
                                                 </span>
                                             </a>
                                         @elseif ($post->rCategory->name == 'Audio')
-                                            <a href="#" class="btn btn-sm btn-orange btn-danger"
+                                            <a href="#" class="btn btn-sm btn-orange btn-danger form-control"
                                                 onclick="loginfail()">
                                                 <span class="small">
                                                     <i class="bi bi-download"></i> Download
@@ -1708,7 +1711,7 @@
                                         @endif
                                     </div>
                                 @elseif ($post->fpgd)
-                                    <div class="col col-12 col-lg-4 mt-3">
+                                    <div class="col col-12 col-lg-7 mt-3">
                                         <a href="#" class="btn btn-sm btn-primary form-control"
                                             onclick="loginfail()">
                                             <span class="small"><i class="bi bi-download"></i>

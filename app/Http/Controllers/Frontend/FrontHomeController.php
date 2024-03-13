@@ -148,7 +148,7 @@ class FrontHomeController extends Controller
     {
         $page = 'detail';
         $post = Post::where('slug', $slug)->first();
-        $posts = Post::inRandomOrder()->limit(1)->with('rUser')->get(); // Mengambil 2 posting secara acak
+        $posts = Post::inRandomOrder()->limit(8)->with('rUser')->get(); // Mengambil 2 posting secara acak
         // $posts = Post::latest()->with('rUser')->paginate(12);
         // dd($posts);
         // die;
@@ -163,7 +163,7 @@ class FrontHomeController extends Controller
     {
         $page = '720p';
         $post = Post::where('slug', $slug)->first();
-        $posts = Post::inRandomOrder()->limit(1)->with('rUser')->get();
+        $posts = Post::inRandomOrder()->limit(8)->with('rUser')->get();
         $like = Like::where('post_id', $post->id)->count();
         $url = url('detail/' . $post->id . '/' . $post->rUser->name);
         $message = 'File from <a href="' . $url . '">' . $post->rUser->name . '</a> by UNP Asset';
@@ -174,7 +174,7 @@ class FrontHomeController extends Controller
     {
         $page = '480p';
         $post = Post::where('slug', $slug)->first();
-        $posts = Post::inRandomOrder()->limit(1)->with('rUser')->get();
+        $posts = Post::inRandomOrder()->limit(8)->with('rUser')->get();
         $like = Like::where('post_id', $post->id)->count();
         $url = url('detail/' . $post->id . '/' . $post->rUser->name);
         $message = 'File from <a href="' . $url . '">' . $post->rUser->name . '</a> by UNP Asset';
@@ -185,7 +185,7 @@ class FrontHomeController extends Controller
     {
         $page = '360p';
         $post = Post::where('slug', $slug)->first();
-        $posts = Post::inRandomOrder()->limit(1)->with('rUser')->get();
+        $posts = Post::inRandomOrder()->limit(8)->with('rUser')->get();
         $like = Like::where('post_id', $post->id)->count();
         $url = url('detail/' . $post->id . '/' . $post->rUser->name);
         $message = 'File from <a href="' . $url . '">' . $post->rUser->name . '</a> by UNP Asset';
